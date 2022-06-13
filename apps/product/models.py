@@ -1,3 +1,14 @@
 from django.db import models
+from apps.category.models import Category
 
-# Create your models here.
+class Product(models.Model):
+    title = models.CharField(max_length=80, verbose_name='Название') # Классные телефоны
+    description = models.TextField(verbose_name='Описание')
+    price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name='Цена')
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='product')
+    in_stock = models.BooleanField(default=True)
+    quantity = models.PositiveIntegerField(default=1)
+    logo = models.ImageField(blank=True, null=True, upload_to='images')
+
+    def __str__(self) -> str:
+        return self.title
