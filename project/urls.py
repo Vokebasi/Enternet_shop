@@ -26,8 +26,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('account/', include('apps.account.urls')),
     path('product/', include('apps.product.urls')),
-#     path('order/', include('apps.order.urls')),
+    path('order/', include('apps.order.urls')),
     path('category/', include('apps.category.urls')),
-#     path('review/', include('apps.review.urls')),
-#     path('comment/', include('apps.comment.urls')),
+    path('review/', include('apps.review.urls')),
+    path('comment/', include('apps.comment.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
