@@ -1,5 +1,10 @@
 from django.db import models
+from django.contrib.auth import get_user_model
+
 from apps.category.models import Category
+
+User = get_user_model()
+
 
 class Product(models.Model):
     title = models.CharField(max_length=80, verbose_name='Название') # Классные телефоны
@@ -12,3 +17,13 @@ class Product(models.Model):
 
     def __str__(self) -> str:
         return self.title
+
+class ProductImage(models.Model):
+    image = models.ImageField(upload_to='images')
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='image')
+
+    def __str__(self):
+        return self.product.title
+
+
+
