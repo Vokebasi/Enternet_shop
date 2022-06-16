@@ -3,6 +3,7 @@ from django.contrib.auth import get_user_model
 
 from apps.category.models import Category
 
+
 User = get_user_model()
 
 
@@ -17,6 +18,7 @@ class Product(models.Model):
 
     def __str__(self) -> str:
         return self.title
+
 
 class ProductImage(models.Model):
     image = models.ImageField(upload_to='images')
