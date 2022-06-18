@@ -15,7 +15,7 @@ class ProductListView(generics.ListCreateAPIView):
     pagination_class = PageNumberPagination
     filter_backends = [DjangoFilterBackend, filters.SearchFilter]
     filter_class = ProductPriceFilter
-    search_fields = ['title', 'description', 'category']
+    search_fields = ['title', 'description']
 
     def get_serializer_context(self):
         return {'request': self.request}
